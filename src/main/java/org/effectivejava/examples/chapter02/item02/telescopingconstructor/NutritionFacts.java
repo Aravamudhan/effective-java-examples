@@ -35,8 +35,15 @@ public class NutritionFacts {
 		this.sodium = sodium;
 		this.carbohydrate = carbohydrate;
 	}
+	
+	@Override
+	public String toString() {
+		return "NutritionFacts [servingSize=" + servingSize + ", servings=" + servings + ", calories=" + calories
+				+ ", fat=" + fat + ", sodium=" + sodium + ", carbohydrate=" + carbohydrate + "]";
+	}
 
 	public static void main(String[] args) {
 		NutritionFacts cocaCola = new NutritionFacts(240, 8, 100, 0, 35, 27);
+		System.out.println(cocaCola);
 	}
 }

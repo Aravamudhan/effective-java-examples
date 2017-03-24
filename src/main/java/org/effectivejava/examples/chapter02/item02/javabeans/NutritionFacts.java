@@ -38,12 +38,18 @@ public class NutritionFacts {
 		carbohydrate = val;
 	}
 
+	@Override
+	public String toString() {
+		return "NutritionFacts [servingSize=" + servingSize + ", servings=" + servings + ", calories=" + calories
+				+ ", fat=" + fat + ", sodium=" + sodium + ", carbohydrate=" + carbohydrate + "]";
+	}
+
 	public static void main(String[] args) {
 		NutritionFacts cocaCola = new NutritionFacts();
 		cocaCola.setServingSize(240);
 		cocaCola.setServings(8);
 		cocaCola.setCalories(100);
 		cocaCola.setSodium(35);
-		cocaCola.setCarbohydrate(27);
+		cocaCola.setCarbohydrate(27);							
 	}
 }

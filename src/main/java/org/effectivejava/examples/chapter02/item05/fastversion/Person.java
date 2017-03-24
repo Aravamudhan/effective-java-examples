@@ -21,6 +21,7 @@ class Person {
 	private static final Date BOOM_START;
 	private static final Date BOOM_END;
 
+	// More efficient implementation. Initialized only once
 	static {
 		Calendar gmtCal = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
 		gmtCal.set(1946, Calendar.JANUARY, 1, 0, 0, 0);
@@ -30,7 +31,6 @@ class Person {
 	}
 
 	public boolean isBabyBoomer() {
-		return birthDate.compareTo(BOOM_START) >= 0
-				&& birthDate.compareTo(BOOM_END) < 0;
+		return birthDate.compareTo(BOOM_START) >= 0 && birthDate.compareTo(BOOM_END) < 0;
 	}
 }

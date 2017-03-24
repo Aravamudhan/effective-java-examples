@@ -60,7 +60,66 @@ public class NutritionFacts {
 	}
 
 	public static void main(String[] args) {
-		NutritionFacts cocaCola = new NutritionFacts.Builder(240, 8)
-				.calories(100).sodium(35).carbohydrate(27).build();
+		NutritionFacts cocaCola = new NutritionFacts.Builder(240, 8).calories(100).sodium(35).carbohydrate(27).build();
+		Student s = new Student.Builder("James", 25).build();
+		System.out.println(s);
+		// Required parameters in the Builder constructor and optional parameters in a separate setter like methods
+		Student t = new Student.Builder("John", 30).gender("Male").build();
+		System.out.println(t);
 	}
+}
+
+/**
+ * Have a Builder class<br/>
+ * Replicate the attributes in the Builder too<br/> 
+ * Call the Builder constructor and necessary methods(only gender() here).<br/>
+ * Finally call the build method of the Builder<br/>
+ * Builder is appropriate when there are lot of parameters. Better suited, if they are optional.<br/>
+ * One disadvantage is the builder must be created before the object. Also it is more verbose<br/>
+ * @author aravamudhan
+ *
+ */
+class Student {
+	private final String name;
+	private final int age;
+	private final String gender;
+
+	private Student(Builder builder) {
+		this.name = builder.name;
+		this.age = builder.age;
+		this.gender = builder.gender;
+	}
+
+	static class Builder {
+		// Required parameters
+		private final String name;
+		private final int age;
+		// Optional parameter
+		private String gender = "Not specified";
+
+		// Set the required parameter here in the constructor of the Builder
+		Builder(String name, int age) {
+			this.name = name;
+			this.age = age;
+		}
+
+		// Set the optional parameters in a separate method
+		Builder gender(String gender) {
+			this.gender = gender;
+			return this;
+		}
+
+		// After a student object has been built this is the final method to
+		// call. This calls the constructor of the Student and sets all the
+		// values
+		Student build() {
+			return new Student(this);
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", age=" + age + ", gender=" + gender + "]";
+	}
+
 }
