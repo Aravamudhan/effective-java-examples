@@ -20,6 +20,11 @@ public class Stack {
 	public Object pop() {
 		if (size == 0)
 			throw new EmptyStackException();
+		// Memory leak. The object that is being popped is not dereference
+		// here. But we are simply reducing the size of the elements array and
+		// the popped object is referenced by the array still. To avoid the
+		// memory leaks that will be possible by this sort of statements, null
+		// out the reference. element[index] = null
 		return elements[--size];
 	}
 

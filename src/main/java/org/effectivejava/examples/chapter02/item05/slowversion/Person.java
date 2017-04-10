@@ -5,14 +5,25 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
-/*This item should not be misconstrued to imply that object creation is expensive 
-and should be avoided.On the contrary,the creation and reclamation of small objects 
-whose constructors do little explicit work is cheap,especially on modern JVM implementations.
-Creating additional objects to enhance the clarity,simplicity,or power of a program is generally a good thing.
-Conversely, avoiding object creation by maintaining your own object pool is a bad idea 
-unless the objects in the pool are extremely heavyweight. Example, database connection pool.*/
+/**
+ * Don't create a new object when you should be reusing the existing one<br/>
+ * 
+ * @author aravamudhan
+ *
+ */
+/*
+ * This item should not be misconstrued to imply that object creation is
+ * expensive and should be avoided. On the contrary,the creation and reclamation
+ * of small objects whose constructors do little explicit work is
+ * cheap,especially on modern JVM implementations. Creating additional objects
+ * to enhance the clarity,simplicity,or power of a program is generally a good
+ * thing. Conversely, avoiding object creation by maintaining your own object
+ * pool is a bad idea unless the objects in the pool are extremely heavy weight.
+ * Example, database connection pool.
+ */
 
 public class Person {
+
 	private final Date birthDate;
 
 	public Person(Date birthDate) {

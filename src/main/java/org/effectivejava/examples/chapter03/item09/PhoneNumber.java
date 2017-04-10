@@ -5,6 +5,13 @@ package org.effectivejava.examples.chapter03.item09;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Hashcode must be overridden when equals method is overridden. If it is not
+ * done, the class will exhibit inconsistent behavior, especially when dealing
+ * with data structures like maps, hash tables and collections in general where
+ * identify of an object is necessary..
+ * 
+ */
 public final class PhoneNumber {
 	private final short areaCode;
 	private final short prefix;
@@ -31,14 +38,16 @@ public final class PhoneNumber {
 		if (!(o instanceof PhoneNumber))
 			return false;
 		PhoneNumber pn = (PhoneNumber) o;
-		return pn.lineNumber == lineNumber && pn.prefix == prefix
-				&& pn.areaCode == areaCode;
+		return pn.lineNumber == lineNumber && pn.prefix == prefix && pn.areaCode == areaCode;
 	}
 
 	// Broken - no hashCode method!
 
-	// A decent hashCode method - Page 48
-	// @Override public int hashCode() {
+	// A decent
+	// hashCode method-Page 48
+
+	// @Override
+	// public int hashCode() {
 	// int result = 17;
 	// result = 31 * result + areaCode;
 	// result = 31 * result + prefix;

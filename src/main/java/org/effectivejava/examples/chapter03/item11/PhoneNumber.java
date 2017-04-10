@@ -30,8 +30,7 @@ public final class PhoneNumber implements Cloneable {
 		if (!(o instanceof PhoneNumber))
 			return false;
 		PhoneNumber pn = (PhoneNumber) o;
-		return pn.lineNumber == lineNumber && pn.prefix == prefix
-				&& pn.areaCode == areaCode;
+		return pn.lineNumber == lineNumber && pn.prefix == prefix && pn.areaCode == areaCode;
 	}
 
 	@Override
@@ -76,5 +75,6 @@ public final class PhoneNumber implements Cloneable {
 		Map<PhoneNumber, String> m = new HashMap<PhoneNumber, String>();
 		m.put(pn, "Jenny");
 		System.out.println(m.get(pn.clone()));
+		System.out.println(m.get(pn));
 	}
 }

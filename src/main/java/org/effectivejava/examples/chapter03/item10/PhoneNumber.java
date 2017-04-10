@@ -4,6 +4,15 @@ package org.effectivejava.examples.chapter03.item10;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Overriding the toString method is highly desirable. This provides a way to
+ * insert meaningful data in to log files, consoles and debugging data. It is
+ * advisable not to specify the format of the toString method since programmers
+ * might parse this information to get specific data. This type of process from
+ * programmers will lead to restriction in the future change of the toString
+ * method.<br/>
+ *
+ */
 public final class PhoneNumber {
 	private final short areaCode;
 	private final short prefix;
@@ -30,8 +39,7 @@ public final class PhoneNumber {
 		if (!(o instanceof PhoneNumber))
 			return false;
 		PhoneNumber pn = (PhoneNumber) o;
-		return pn.lineNumber == lineNumber && pn.prefix == prefix
-				&& pn.areaCode == areaCode;
+		return pn.lineNumber == lineNumber && pn.prefix == prefix && pn.areaCode == areaCode;
 	}
 
 	@Override
