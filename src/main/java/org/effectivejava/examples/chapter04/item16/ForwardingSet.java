@@ -1,10 +1,12 @@
-// Reusable forwarding class - Page 84
+// Wrapper class - uses composition in place of inheritance - Page 84
+// Reusable forwarding class
 package org.effectivejava.examples.chapter04.item16;
 
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
+// This just forwards all the method calls to the object that this wraps around. This follows decorator pattern
 public class ForwardingSet<E> implements Set<E> {
 	private final Set<E> s;
 
